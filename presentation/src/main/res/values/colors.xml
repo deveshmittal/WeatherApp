@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#F5F6F7</color>
+    <color name="colorPrimaryDark">#ECECEC</color>
+    <color name="colorAccent">#E85959</color>
+    <color name="transperent">#00000000</color>
+
+    <color name="bg_main">#F5F6F7</color>
+    <color name="bg_error">#E85959</color>
+
+    <color name="text_color_white">#FFFFFF</color>
+    <color name="text_color_title">#2A2A2A</color>
+    <color name="text_color_subtitle">#556799</color>
+
+    <color name="bg_grey">#4a4a4a</color>
+    <color name="divider">#1F000000</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="apple_light">#6033cc33</color>
+    <color name="apple">#33cc33</color>
+    <color name="green_back">#55bca6</color>
+
+
+</resources>

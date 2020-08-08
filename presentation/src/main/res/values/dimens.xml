@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	 <dimen name = "padding_smal">8dp</dimen>
+	 <dimen name = "padding_normal">16dp</dimen>
+	 <dimen name = "padding_big">24dp</dimen>
+
+	 <dimen name = "text_size_subtitle">36sp</dimen>
+	 <dimen name = "text_size_normal">16sp</dimen>
+	 <dimen name = "text_size_great">54sp</dimen>
+	 <dimen name = "text_size_extra_great">96sp</dimen>
+
+	 <dimen name = "weather_top_space">56dp</dimen>
+	 <dimen name = "weather_bottom_space">62dp</dimen>
+
+	 <dimen name = "error_button_space">44dp</dimen>
+	 <dimen name = "divider">1dp</dimen>
+	 <dimen name = "weather_forecust_height">80dp</dimen>
+	 <dimen name = "progress_bar">96dp</dimen>
+
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.deveshmittal.presentation.mvvm.model.ScreenStateEnum" />
+
+        <variable
+            name="vm"
+            type="com.deveshmittal.presentation.mvvm.WeatherVM" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cv_animated="@{true}"
+        app:cv_animated_mask="@{1}"
+        app:cv_visible="@{vm.lvScreenState.state == ScreenStateEnum.LOADED}">
+
+        <include layout="@layout/merge_guideline" />
+
+        <android.support.v7.widget.AppCompatTextView
+
+            android:id="@+id/txt_cels"
+            style="@style/AppTheme.text.title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/weather_top_space"
+            android:text="@{vm.lvCurrentWeather.celsius}"
+            android:textSize="@dimen/text_size_extra_great"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_subtitle"
+            style="@style/AppTheme.text.subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:padding="@dimen/padding_normal"
+            android:text="@{vm.lvCurrentWeather.city}"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/txt_cels" />
+
+        <!--background  shadow_top used fo shadow, base on api lvl-->
+        <!--TODO cv_animated_mask to constants atributes-->
+        <FrameLayout
+            android:id="@+id/shadowConeteiner"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/weather_bottom_space"
+            android:background="@drawable/shadow_top"
+            android:elevation="4dp"
+            android:paddingTop="2dp"
+            android:visibility="gone"
+            app:cv_animated="@{true}"
+            app:cv_animated_mask="@{2|3}"
+            app:cv_visible="@{vm.lvWeatherForecastVisibility}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_subtitle"
+            tools:visibility="visible">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="@dimen/padding_normal" />
+        </FrameLayout>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

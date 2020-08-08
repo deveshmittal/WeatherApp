@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	 xmlns:android = "http://schemas.android.com/apk/res/android"
+	 xmlns:app = "http://schemas.android.com/apk/res-auto"
+	 xmlns:tools = "http://schemas.android.com/tools">
+	 <data>
+		  <import type = "com.deveshmittal.presentation.mvvm.model.ScreenStateEnum"/>
+
+		  <variable name = "vm"
+						type = "com.deveshmittal.presentation.mvvm.WeatherVM"/>
+	 </data>
+
+	 <android.support.constraint.ConstraintLayout
+		  android:layout_width = "match_parent"
+		  android:layout_height = "match_parent"
+		  android:background = "@color/bg_error"
+		  app:cv_animated_mask = "@{0}"
+		  app:cv_animated = "@{false}"
+		  app:cv_visible = "@{vm.lvScreenState.state == ScreenStateEnum.ERROR_STATE}"
+	 >
+
+		  <include layout = "@layout/merge_guideline"/>
+
+		  <android.support.v7.widget.AppCompatTextView
+				android:id = "@+id/txt_reason"
+				android:layout_width = "0dp"
+				android:layout_height = "wrap_content"
+				style = "@style/AppTheme.text.error"
+				android:gravity = "center"
+				android:text = "@{vm.lvErrorText}"
+				app:layout_constraintBottom_toTopOf = "@id/retry"
+				app:layout_constraintEnd_toEndOf = "@+id/guidelineEnd"
+				app:layout_constraintStart_toStartOf = "@+id/guidelineStart"
+				app:layout_constraintTop_toTopOf = "parent"
+				app:layout_constraintVertical_chainStyle = "packed"
+				tools:text = "@string/something_went_wrong"/>
+
+		  <android.support.v7.widget.AppCompatButton
+				android:id = "@+id/retry"
+				android:layout_width = "wrap_content"
+				android:layout_height = "wrap_content"
+				android:layout_marginTop = "@dimen/error_button_space"
+				android:background = "@color/bg_grey"
+				android:onClick = "@{()->vm.retry()}"
+				android:paddingBottom = "@dimen/padding_smal"
+				android:paddingEnd = "@dimen/padding_big"
+				android:paddingStart = "@dimen/padding_big"
+				android:paddingTop = "@dimen/padding_smal"
+				android:text = "@string/retry"
+				android:textAllCaps = "true"
+				android:textColor = "@color/text_color_white"
+				app:layout_constraintBottom_toBottomOf = "parent"
+				app:layout_constraintEnd_toEndOf = "@+id/guidelineEnd"
+				app:layout_constraintStart_toStartOf = "@+id/guidelineStart"
+				app:layout_constraintTop_toBottomOf = "@+id/txt_reason"
+		  />
+
+	 </android.support.constraint.ConstraintLayout>
+</layout>
